@@ -6,7 +6,7 @@ import "./index.css";
 import ReactGA from "react-ga4";
 import { AllPostsProvider } from "./contexts/AllPostsProvider"; // Adjust the path as necessary
 
-ReactGA.initialize("G-SER7RN4C4P");
+ReactGA.initialize("G-QK2T5N8MC9");
 
 // Send pageview with a custom path
 // ReactGA.send({ hitType: "pageview", page: "/logiin", title: "suiii" });
