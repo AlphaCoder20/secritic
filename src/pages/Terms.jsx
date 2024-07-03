@@ -19,7 +19,7 @@ export default function Terms() {
           <p>
             Welcome to SeCritic! These terms and conditions outline the rules
             and regulations for the use of SeCritic&apos;s Website, located at
-            www.secritic.com.
+            www.SeCritic.com.
           </p>
 
           <h2>Intellectual Property Rights</h2>

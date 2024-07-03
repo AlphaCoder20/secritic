@@ -15,8 +15,9 @@ export default function Card({ image, title, score, category }) {
   }
 
   const handleClick = () => {
-    const urlTitle = title.toLowerCase().replace(/ /g, "-");
-    navigate(`/post/${urlTitle}`, { state: { image, title, score, category } });
+    const titleUrl = title.toLowerCase().replace(/[\s#!?,.:;'"()&@$%*+=[\]{}/\\|]/g, "-");
+
+    navigate(`/post/${titleUrl}`);
   };
 
   return (

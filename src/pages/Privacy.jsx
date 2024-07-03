@@ -19,7 +19,7 @@ export default function Privacy() {
             Welcome to SeCritic&apos;s Privacy Policy. Your privacy is important to
             us. This Privacy Policy outlines how we collect, use, disclose, and
             safeguard your information when you visit our website
-            www.secritic.com.
+            www.SeCritic.com.
           </p>
 
           <h2>Information We Collect</h2>

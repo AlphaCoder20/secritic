@@ -12,7 +12,7 @@ export const generateAllPosts = () => {
     "Kamaero",
     "Hades",
     "Fading Afternoon",
-    "Elden Ring: Shadow of the Erdtree",
+    "Elden Ring : Shadow of the Erdtree",
     "#Blud",
     "Blockbuster",
     "Autopsy Simulator",
@@ -21,7 +21,7 @@ export const generateAllPosts = () => {
   const upTitles = [
     "Assassins Creed Shadows",
     "Astro Bot",
-    "Collegge Football",
+    "College Football",
     "Dawntrail",
     "Flintlock",
     "Frostpunk 2",
@@ -34,7 +34,7 @@ export const generateAllPosts = () => {
   const mobTitles = [
     "Zelda",
     "Riven",
-    "The Legendof Heros",
+    "The Legend of Heros",
     "Space Marine",
     "Star Wars",
     "Super Monkey",
@@ -66,8 +66,8 @@ export const generateAllPosts = () => {
     90, 45, 82, 70, 56, 94, 73, 60, 86, 50,
   ];
 
-  const links = ["new", "upcoming", "mobile", "pc", "ps5"];
-  const typeTitles = [
+  const allSectionUrl = ["new", "upcoming", "mobile", "pc", "ps5"];
+  const allSectionTitle = [
     "New Releases",
     "Upcoming Funs",
     "Mobile Games",
@@ -75,8 +75,8 @@ export const generateAllPosts = () => {
     "PS5 Games",
   ];
 
-  const images = [newImages, upImages, mobImages, pcImages, ps5Images];
-  const allTitles = [newTitles, upTitles, mobTitles, pcTitles, ps5Titles];
+  const allSectionPosts = [newImages, upImages, mobImages, pcImages, ps5Images];
+  const allPostTitles = [newTitles, upTitles, mobTitles, pcTitles, ps5Titles];
 
   // Function to rotate an array by n elements
   const rotateArray = (array, n) => {
@@ -84,12 +84,12 @@ export const generateAllPosts = () => {
     return array.slice(n % len).concat(array.slice(0, n % len));
   };
 
-  const types = links.map((link, linkIndex) => {
-    const titles = allTitles[linkIndex % allTitles.length];
+  const allSection = allSectionUrl.map((sectionUrl, linkIndex) => {
+    const titles = allPostTitles[linkIndex % allPostTitles.length];
     const rotatedScores = rotateArray(scores, 7 * linkIndex);
     const rotatedCategories = rotateArray(categories, 7 * linkIndex);
 
-    const posts = images[linkIndex % images.length].map(
+    const sectionPosts = allSectionPosts[linkIndex % allSectionPosts.length].map(
       (image, imageIndex) => ({
         image,
         title: titles[imageIndex % titles.length],
@@ -99,14 +99,14 @@ export const generateAllPosts = () => {
     );
 
     return {
-      link,
-      posts,
+      sectionUrl,
+      sectionPosts,
     };
   });
 
-  return typeTitles.map((type, index) => ({
-    type,
-    link: types[index].link,
-    posts: types[index].posts,
+  return allSectionTitle.map((sectionTitle, index) => ({
+    sectionTitle,
+    sectionUrl: allSection[index].sectionUrl,
+    sectionPosts: allSection[index].sectionPosts,
   }));
 };
