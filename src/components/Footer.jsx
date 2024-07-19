@@ -5,11 +5,22 @@ import Logo from "./Logo";
 import "../styles/Footer.css";
 
 export default function Footer() {
- 
+  const links = [
+    { to: "/about", label: "About" },
+    { to: "/about", label: "Help Center" },
+    { to: "/about", label: "Careers" },
+    { to: "/privacy", label: "Privacy Policy" },
+    { to: "/about", label: "Digital Services Act" },
+    { to: "/terms", label: "Terms of Use" },
+  ];
+
   useEffect(() => {
     const toggleScrollToTopButton = () => {
       const slider = document.querySelector(".slider");
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+      ) {
         slider.classList.add("show");
       } else {
         slider.classList.remove("show");
@@ -24,7 +35,7 @@ export default function Footer() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -40,12 +51,11 @@ export default function Footer() {
       <div className="f-content">
         <div className="overview vertical">
           <h3>Overview</h3>
-          <Link to="/about">About</Link>
-          <Link to="/about">Help Center</Link>
-          <Link to="/about">Careers</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/about">Digital Services Act</Link>
-          <Link to="/terms">Terms of Use</Link>
+          {links.map((link, index) => (
+            <Link key={index} to={link.to}>
+              {link.label}
+            </Link>
+          ))}
         </div>
         <div className="follow vertical">
           <div className="f-top">
@@ -63,7 +73,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="f-bottom">
-            <p>&copy; 2024 SeCritic. ALL RIGHTS RESERVED.</p>
+            <p>&copy; 2024 secritic. ALL RIGHTS RESERVED.</p>
           </div>
         </div>
         <div className="explore vertical">
@@ -82,7 +92,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-       <div className="slider" onClick={scrollToTop}>
+      <div className="slider" onClick={scrollToTop}>
         <i className="bx bx-up-arrow-alt"></i>
       </div>
     </div>

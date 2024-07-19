@@ -75,7 +75,7 @@ export const generateAllPosts = () => {
     "PS5 Games",
   ];
 
-  const allSectionPosts = [newImages, upImages, mobImages, pcImages, ps5Images];
+  const allPostImages = [newImages, upImages, mobImages, pcImages, ps5Images];
   const allPostTitles = [newTitles, upTitles, mobTitles, pcTitles, ps5Titles];
 
   // Function to rotate an array by n elements
@@ -85,16 +85,16 @@ export const generateAllPosts = () => {
   };
 
   const allSection = allSectionUrl.map((sectionUrl, linkIndex) => {
-    const titles = allPostTitles[linkIndex % allPostTitles.length];
+    const images = allPostImages[linkIndex % allPostImages.length];
     const rotatedScores = rotateArray(scores, 7 * linkIndex);
     const rotatedCategories = rotateArray(categories, 7 * linkIndex);
 
-    const sectionPosts = allSectionPosts[linkIndex % allSectionPosts.length].map(
-      (image, imageIndex) => ({
-        image,
-        title: titles[imageIndex % titles.length],
-        score: rotatedScores[imageIndex % rotatedScores.length],
-        category: rotatedCategories[imageIndex % rotatedCategories.length],
+    const sectionPosts = allPostTitles[linkIndex % allPostTitles.length].map(
+      (game, gameIndex) => ({
+        image: images[gameIndex],
+        title: game,
+        score: rotatedScores[gameIndex % rotatedScores.length],
+        category: rotatedCategories[gameIndex % rotatedCategories.length],
       })
     );
 

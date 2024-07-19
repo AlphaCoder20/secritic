@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import Card from "../components/Card";
 import NotFound from "../components/NotFound";
 import Loading from "../components/Loading";
@@ -17,14 +15,12 @@ export default function All() {
   const allPosts = useAllPost();
 
   useEffect(() => {
-      const postData = allPosts.find(
-        (group) => group.sectionUrl === sectionUrl
-      );
-      if (postData) {
-        setSectionTitle(postData.sectionTitle);
-        setSectionPosts(postData.sectionPosts);
-        setIsLoading(false);
-      }
+    const postData = allPosts.find((group) => group.sectionUrl === sectionUrl);
+    if (postData) {
+      setSectionTitle(postData.sectionTitle);
+      setSectionPosts(postData.sectionPosts);
+      setIsLoading(false);
+    }
   }, [sectionUrl, allPosts]);
 
   if (isLoading) {
@@ -37,7 +33,6 @@ export default function All() {
 
   return (
     <>
-      <Navbar />
       <div className="all">
         <div className="a-top">
           <div className="a-title">
@@ -57,7 +52,6 @@ export default function All() {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

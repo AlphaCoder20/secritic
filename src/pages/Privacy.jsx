@@ -1,12 +1,9 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../styles/About.css"
 
 export default function Privacy() {
   return (
     <>
-      <Navbar />
       <div className="all">
         <div className="a-top">
           <div className="a-title">
@@ -16,10 +13,10 @@ export default function Privacy() {
         <div className="about-content">
           <h2>Introduction</h2>
           <p>
-            Welcome to SeCritic&apos;s Privacy Policy. Your privacy is important to
+            Welcome to secritic&apos;s Privacy Policy. Your privacy is important to
             us. This Privacy Policy outlines how we collect, use, disclose, and
             safeguard your information when you visit our website
-            www.SeCritic.com.
+            www.secritic.com.
           </p>
 
           <h2>Information We Collect</h2>
@@ -76,7 +73,6 @@ export default function Privacy() {
           </p>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

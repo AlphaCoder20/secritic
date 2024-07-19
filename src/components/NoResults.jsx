@@ -1,5 +1,3 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 import { useLocation } from 'react-router-dom';
 import "../styles/All.css";
 import "../styles/NoResults.css";
@@ -10,7 +8,6 @@ export default function NoResults() {
 
   return (
     <>
-      <Navbar />
       <div className="all" id="no-results">
         <div className="a-top">
           <div className="a-title">
@@ -22,7 +19,6 @@ export default function NoResults() {
         <p>We couldn&quot;t find a match for &quot;<b>{searchQuery}</b>&quot;. Please double-check the spelling or try another search.</p>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

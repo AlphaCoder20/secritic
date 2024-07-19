@@ -1,0 +1,128 @@
+@import url(../index.css);
+
+.profile-page {
+  width: 100%;
+  display: flex;
+  color: var(--dark);
+}
+
+.profile-page h2 {
+  font-weight: 500;
+}
+
+.profile-menu {
+  background-color: #e7e7e7;
+  padding: 40px 0 0 50px;
+  height: 100vh;
+  min-width: 360px;
+}
+
+.profile-menu li {
+  list-style: none;
+  text-transform: uppercase;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  color: var(--dark-t);
+}
+
+.profile-menu li:hover {
+  color: var(--dark-l);
+}
+
+.profile-content {
+  padding: 40px 5% 0 30px;
+  width: 100%;
+}
+
+.my-account {
+  width: 100%;
+}
+
+.my-account h2 {
+  border-bottom: 1px solid var(--dark);
+  padding-bottom: 15px;
+}
+
+.my-account ul {
+  display: flex;
+  gap: 15px;
+  color: var(--dark-l);
+}
+
+.my-account li {
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.my-account li:hover {
+  color: var(--dark-t);
+}
+
+.my-account li.active,
+.profile-menu li.active {
+  color: var(--dark);
+  font-weight: 450;
+  cursor: default;
+  position: relative;
+}
+
+.my-account li.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-top: 3px solid var(--dark);
+}
+
+.user-update form {
+  width: 60%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-style: bold;
+  margin-top: 30px;
+}
+
+.user-update input,
+.user-update button {
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  border: 1px solid var(--dark-l);
+  font-size: 1rem;
+}
+
+.user-update input:focus {
+  outline: none;
+}
+
+.user-update a {
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.user-update button {
+  color: var(--dark);
+  background-color: var(--dark-l);
+  border: none;
+  font-weight: 500;
+  margin-top: 30px;
+  width: 30%;
+  padding: 15px;
+  align-self: end;
+}
+
+.user-update button.change {
+  cursor: pointer;
+  background-color: var(--primary);
+}
+
+.my-account form input {
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid var(--dark-l);
+}

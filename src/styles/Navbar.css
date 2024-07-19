@@ -1,10 +1,26 @@
 @import url(.././index.css);
 
-nav {
+.navbar {
+  width: 100%;
   height: 60px;
   background-color: var(--dark);
   font-weight: 500;
   color: var(--light);
+  position: relative;
+  z-index: 1000;
+  top: 0;
+}
+
+.fixed-position {
+  position: fixed;
+}
+
+.navbar-hide {
+  transform: translateY(-100%);
+}
+
+.navbar-show {
+  transform: translateY(0);
 }
 
 .container {
@@ -53,7 +69,6 @@ nav {
 #menu-icon {
   font-size: 40px;
   color: var(--light);
-  z-index: 10001;
   cursor: pointer;
   margin: 10px 0;
   display: none;
@@ -79,6 +94,10 @@ nav {
   justify-content: end;
 }
 
+.user-logged-in {
+  width: 45px;
+}
+
 .n-login button {
   width: 90px;
   padding: 9px;
@@ -94,6 +113,61 @@ nav {
   background-color: var(--primary-l);
 }
 
+.profile {
+  cursor: pointer;
+  display: flex;
+}
+
+#profile-icon {
+  width: 35px;
+  border-radius: 50%;
+}
+
+#down-arrow {
+  width: 18px;
+}
+
+.drop-box {
+  position: absolute;
+  width: 250px;
+  height: 160px;
+  top: -1000px;
+  right: 5%;
+  padding: 20px;
+  background-color: var(--light);
+  box-shadow: 0 25px 40px 1px #5e5e5e73;
+  transition: all 0.45s ease;
+  z-index: 1001;
+}
+
+.drop-box ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.drop-box li {
+  color: var(--dark-t);
+  list-style: none;
+  text-transform: uppercase;
+  margin: 20px 0;
+  cursor: pointer;
+  display: flex;
+}
+
+.drop-box img {
+  width: 20px;
+  margin-right: 15px;
+}
+
+#powerButton {
+  width: 25px;
+}
+
+.drop-box li:hover {
+  color: var(--dark-l);
+}
+
 @media (max-width: 780px) {
   .n-logo {
     width: auto;
@@ -106,21 +180,17 @@ nav {
 
   .navlist {
     position: absolute;
-    top: -1000px;
-    right: 0;
-    left: 0;
+    top: 102%;
+    left: -1000px;
     display: flex;
     flex-direction: column;
-    background: var(--dark);
+    background-color: var(--dark);
     align-items: center;
     justify-content: space-evenly;
     transition: all 0.45s ease;
-    z-index: 1000;
     height: 60vh;
-  }
-
-  .navlist.open {
-    top: 8%;
+    width: 90%;
+    z-index: 1001;
   }
 
   .navlist li {
@@ -135,7 +205,6 @@ nav {
     width: 300px;
     justify-content: end;
     padding-right: 15px;
-    cursor: pointer;
   }
 
   .lens {
@@ -143,11 +212,28 @@ nav {
     width: 36px;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 }
 
 @media (max-width: 400px) {
-  .search{
+  .search {
     width: 280px;
   }
+}
+
+.bg-dark-thin {
+  background-color: var(--dark-t);
+}
+
+.bg-light-thin {
+  background-color: var(--light-t);
+}
+
+.open-menu {
+  left: 5%;
+}
+
+.open {
+  top: 102%;
 }

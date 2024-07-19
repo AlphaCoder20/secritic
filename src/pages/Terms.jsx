@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 import "../styles/About.css"
@@ -7,7 +5,6 @@ import "../styles/About.css"
 export default function Terms() {
   return (
     <>
-      <Navbar />
       <div className="all">
         <div className="a-top">
           <div className="a-title">
@@ -17,14 +14,14 @@ export default function Terms() {
         <div className="about-content">
           <h2>Introduction</h2>
           <p>
-            Welcome to SeCritic! These terms and conditions outline the rules
-            and regulations for the use of SeCritic&apos;s Website, located at
-            www.SeCritic.com.
+            Welcome to secritic! These terms and conditions outline the rules
+            and regulations for the use of secritic&apos;s Website, located at
+            www.secritic.com.
           </p>
 
           <h2>Intellectual Property Rights</h2>
           <p>
-            Other than the content you own, under these Terms, SeCritic and/or
+            Other than the content you own, under these Terms, secritic and/or
             its licensors own all the intellectual property rights and materials
             contained in this Website.
           </p>
@@ -66,7 +63,7 @@ export default function Terms() {
 
           <h2>Disclaimer</h2>
           <p>
-            This Website is provided &quot;as is,&quot; with all faults, and SeCritic
+            This Website is provided &quot;as is,&quot; with all faults, and secritic
             makes no express or implied representations or warranties, of any
             kind related to this Website or the materials contained on this
             Website.
@@ -74,7 +71,7 @@ export default function Terms() {
 
           <h2>Changes to Terms</h2>
           <p>
-            SeCritic reserves the right to modify these Terms at any time. We
+            secritic reserves the right to modify these Terms at any time. We
             recommend reviewing these Terms regularly for any updates.
           </p>
 
@@ -85,7 +82,6 @@ export default function Terms() {
           </p>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

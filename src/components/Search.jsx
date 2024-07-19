@@ -101,7 +101,7 @@ export default function Search() {
         return false;
       });
 
-      // Checking for match in section title if no match in posts
+      // Check for match in section title if no match in posts
       if (!isMatch) {
         const sectionTitleWords = filterStopWords(
           group.sectionTitle.toLowerCase().split(" ")

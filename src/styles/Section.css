@@ -41,12 +41,12 @@
   margin-left: 20px;
   text-transform: uppercase;
   text-decoration: underline;
-  color: #bebebe;
+  color: var(--dark-l);
   font-style: italic;
 }
 
 .title a:hover {
-  color: #8f8f8f;
+  color: var(--dark-t);
 }
 
 .arrow {
@@ -101,7 +101,7 @@
   gap: 20px;
 }
 
-.card{
+.card {
   width: 180px;
   height: 100%;
 }

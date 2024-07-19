@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import NotFound from "../components/NotFound";
 import Loading from "../components/Loading";
 import { useAllPost } from "../contexts/AllPostsProvider";
@@ -41,7 +39,6 @@ export default function Post() {
 
   return (
     <>
-      <Navbar />
       <div className="post">
         <div className="post-header">
           <h2>{post.title}</h2>
@@ -85,7 +82,6 @@ export default function Post() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
