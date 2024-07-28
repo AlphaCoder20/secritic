@@ -135,7 +135,7 @@
   right: 5%;
   padding: 20px;
   background-color: var(--light);
-  box-shadow: 0 25px 40px 1px #5e5e5e73;
+  box-shadow: 0 10px 10px 1px #c5c5c573;
   transition: all 0.45s ease;
   z-index: 1001;
 }

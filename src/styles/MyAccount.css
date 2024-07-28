@@ -1,0 +1,102 @@
+.my-account {
+  width: 100%;
+}
+
+.my-account h2 {
+  border-bottom: 1px solid var(--dark);
+  padding-bottom: 15px;
+}
+
+.my-account ul {
+  display: flex;
+  gap: 15px;
+  color: var(--dark-l);
+}
+
+.my-account li {
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.my-account li:hover {
+  color: var(--dark-t);
+}
+
+.my-account li.active,
+.profile-menu li.active {
+  color: var(--dark);
+  font-weight: 450;
+  cursor: default;
+  position: relative;
+}
+
+.my-account li.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-top: 2px solid var(--dark);
+}
+
+.user-update form {
+  width: 60%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-style: bold;
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+.user-update input,
+.user-update button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: 1px solid var(--dark-l);
+  font-size: 1rem;
+}
+
+.user-update input:focus {
+  color: var(--dark-t);
+}
+
+.user-update input {
+  color: var(--dark-l);
+}
+
+.user-update button {
+  color: var(--dark);
+  background-color: var(--dark-l);
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 30px;
+  width: 200px;
+  align-self: end;
+}
+
+.form-footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  margin-top: 40px;
+}
+
+.user-update button:active {
+  background-color: var(--dark-t);
+}
+
+.user-update button.change {
+  cursor: pointer;
+  background-color: var(--primary);
+}

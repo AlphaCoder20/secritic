@@ -17,8 +17,10 @@
     --primary-l : #f3d74a;
     --secondary : #32012f;
     --light : #E2DFD0;
+    --light-t : #E2DFD0e5;
     --dark : #524C42;
     --dark-t : #524c42b9;
+    --dark-l : #5c5852b9;
 }
 
 body{

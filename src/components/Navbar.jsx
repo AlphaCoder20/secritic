@@ -5,7 +5,7 @@ import axios from "axios";
 import fullLogo from "../assets/logo/S-Logo-Light.svg";
 import logo from "../assets/logo/S-Favicon.svg";
 import profileIcon from "../assets/icons/profile.svg";
-import powerButton from "../assets/icons/powerButton.svg";
+import powerButton from "../assets/icons/powerButtonDark.svg";
 import profileDark from "../assets/icons/profileDark.svg";
 import { useAllPost } from "../contexts/AllPostsProvider";
 import searchIcon from "../assets/icons/SearchLight.svg";
@@ -36,7 +36,6 @@ export default function Navbar() {
   useEffect(() => {
     // Retrieve user info from localStorage
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-
     if (userInfo && userInfo.token) {
       getData(userInfo.token);
     }

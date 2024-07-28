@@ -1,42 +1,41 @@
-import { useEffect, useRef, useState } from "react";
 import "../styles/Profile.css";
+import MyAccount from "../components/MyAccount";
+import MyRatings from "../components/MyRatings";
+import { useNavigate } from "react-router-dom";
+import { trackEvent } from "../analytics";
+import { useRef, useState, useEffect } from "react";
 
 export default function Profile() {
-  const buttonRef = useRef(null);
-  const [userData, setUserData] = useState({
-    Name: "Conquerror",
-    Email: "conquerror@gmail.com",
-  });
-  const [formData, setFormData] = useState({
-    Name: "",
-    Email: "",
-  });
+  const [profileContent, setProfileContent] = useState("my_account");
+  const accountContentRef = useRef(null);
+  const ratingsContentRef = useRef(null);
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("userData"));
 
-  useEffect(() => {
-    setUserData({ ...userData, Password: "12" });
-    setFormData(userData);
-  }, []);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-  useEffect(() => {
-    if (formData.Name === userData.Name && formData.Email === userData.Email) {
-      buttonRef.current.classList.remove("change");
-    } else {
-      buttonRef.current.classList.add("change");
-    }
-  }, [formData, userData]);
-
-  const saveChanges = () => {
-    if (buttonRef.current.classList.contains("change")) {
-      setUserData(formData);
-      alert("changes saved");
-    } else {
-      console.log("no changes");
+  const handleLogout = () => {
+    const isConfirmed = window.confirm("Are you sure you want to log out?");
+    if (isConfirmed) {
+      // Send logout attempt event to Google Analytics
+      trackEvent("User", "Attempted Logout", user.email);
+      localStorage.removeItem("userInfo");
+      localStorage.removeItem("userData");
+      navigate("/login");
     }
   };
+
+  const changeContent = (e) => {
+    setProfileContent(e.target.id);
+  };
+
+  useEffect(() => {
+    if (profileContent === "my_account") {
+      accountContentRef.current.classList.add("active");
+      ratingsContentRef.current.classList.remove("active");
+    } else if (profileContent === "my_ratings") {
+      ratingsContentRef.current.classList.add("active");
+      accountContentRef.current.classList.remove("active");
+    }
+  }, [profileContent]);
 
   return (
     <>
@@ -44,43 +43,18 @@ export default function Profile() {
         <div className="profile-menu">
           <h2>My Profile</h2>
           <ul>
-            <li className="active">My Account</li>
-            <li>My Ratings & Reviews</li>
-            <li>Log Out</li>
+            <li id="my_account" onClick={changeContent} ref={accountContentRef}>
+              My Account
+            </li>
+            <li id="my_ratings" onClick={changeContent} ref={ratingsContentRef}>
+              My Ratings & Reviews
+            </li>
+            <li onClick={handleLogout}>Log Out</li>
           </ul>
         </div>
         <div className="profile-content">
-          <div className="my-account">
-            <h2>My Account</h2>
-            <ul>
-              <li className="active">Username/Email</li>
-              <li>Password</li>
-            </ul>
-            <div className="user-update">
-              <form>
-                <label htmlFor="name">User Name</label>
-                <input
-                  type="text"
-                  name="Name"
-                  value={formData.Name}
-                  onChange={handleChange}
-                  required
-                />
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="Email"
-                  value={formData.Email}
-                  onChange={handleChange}
-                  required
-                />
-
-                <button type="button" ref={buttonRef} onClick={saveChanges}>
-                  Save Changes
-                </button>
-              </form>
-            </div>
-          </div>
+          {profileContent === "my_account" && <MyAccount />}
+          {profileContent === "my_ratings" && <MyRatings />}
         </div>
       </div>
     </>

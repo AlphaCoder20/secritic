@@ -1,0 +1,14 @@
+@import url(../index.css);
+
+.my-ratings{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 150px);
+}
+
+.user-update p {
+  font-weight: 400;
+  color: var(--dark);
+}
